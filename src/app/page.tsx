@@ -58,7 +58,7 @@ export default function Home() {
     <img
       src="/logo.jpg" // replace with your image path
       alt="Profile"
-      className="w-60 h-60  rounded-full border-4 border-white shadow-lg"
+      className="lg:w-60 lg:h-60 sm:w-36 sm:h-36 rounded-full border-4 border-white shadow-lg"
     />
   </div>
 
