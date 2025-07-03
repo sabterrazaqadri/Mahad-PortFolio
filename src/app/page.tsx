@@ -1,4 +1,5 @@
 // pages/index.js
+import Link from 'next/dist/client/link';
 import Head from 'next/head';
 
 export default function Home() {
@@ -40,40 +41,53 @@ export default function Home() {
         </nav>
 
         <section id="hero" className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-white to-gray-200 text-center py-20 px-4 overflow-hidden">
-          <div className="absolute inset-0 z-0 opacity-10">
-            <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <defs>
-                <pattern id="diagonal-lines" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
-                  <line x1="0" y1="0" x2="10" y2="10" stroke="#cbd5e1" strokeWidth="1" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#diagonal-lines)" />
-            </svg>
-          </div>
-          <div className="relative z-10 max-w-5xl mx-auto animate-fadeInUp">
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-4 text-gray-900">
-              Transforming Ideas into{' '}
-              <span className="text-blue-700 block sm:inline-block">Digital Reality</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-700 mb-8">
-              I'm Mahad Raza Qadri, a dedicated developer crafting captivating websites and custom applications that drive success.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <a
-                href="#contact"
-                className="inline-block bg-gray-900 hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 active:scale-95"
-              >
-                Get a Free Consultation
-              </a>
-              <a
-                href="#portfolio"
-                className="inline-block border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 active:scale-95"
-              >
-                View My Work
-              </a>
-            </div>
-          </div>
-        </section>
+  {/* Background SVG */}
+  <div className="absolute inset-0 z-0 opacity-10">
+    <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <defs>
+        <pattern id="diagonal-lines" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="0" x2="10" y2="10" stroke="#cbd5e1" strokeWidth="1" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#diagonal-lines)" />
+    </svg>
+  </div>
+
+  {/* Circle Image */}
+  <div className="absolute top-10 mb-10 left-1/2 transform -translate-x-1/2 z-20">
+    <img
+      src="/logo.jpg" // replace with your image path
+      alt="Profile"
+      className="w-60 h-60  rounded-full border-4 border-white shadow-lg"
+    />
+  </div>
+
+  {/* Main Content */}
+  <div className="relative z-10 max-w-5xl mx-auto animate-fadeInUp mt-40">
+    <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-4 text-gray-900">
+      Transforming Ideas into{' '}
+      <span className="text-blue-700 block sm:inline-block">Digital Reality</span>
+    </h1>
+    <p className="text-xl md:text-2xl text-gray-700 mb-8">
+      I'm Mahad Raza Qadri, a dedicated developer crafting captivating websites and custom applications that drive success.
+    </p>
+    <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+      <a
+        href="#contact"
+        className="inline-block bg-gray-900 hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 active:scale-95"
+      >
+        Get a Free Consultation
+      </a>
+      <a
+        href="#portfolio"
+        className="inline-block border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 active:scale-95"
+      >
+        View My Work
+      </a>
+    </div>
+  </div>
+</section>
+
 
         <section id="about" className="py-20 px-4 bg-gray-900">
           <div className="container mx-auto max-w-5xl text-center">
@@ -162,11 +176,11 @@ export default function Home() {
                   key={idx}
                   className="bg-gray-800 rounded-xl shadow-2xl overflow-hidden hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-3 hover:scale-[1.02]"
                 >
-                  <img
+                  {/* <img
                     src={`https://via.placeholder.com/600x400/0F172A/06B6D4?text=Project+${name}`}
                     alt={`Project ${name}`}
                     className="w-full h-48 object-cover object-center"
-                  />
+                  /> */}
                   <div className="p-6">
                     <h3 className="text-2xl font-semibold mb-2 text-white">
                       {name === 'Alpha'
@@ -182,12 +196,12 @@ export default function Home() {
                         ? 'Developed a bespoke CRM to manage client interactions...'
                         : 'Built an engaging online learning platform...'}
                     </p>
-                    <a
+                    {/* <a
                       href="#"
                       className="text-cyan-400 hover:text-cyan-500 hover:underline text-lg font-medium transition-colors duration-300"
                     >
                       View Case Study &rarr;
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               ))}
@@ -219,7 +233,6 @@ export default function Home() {
                 ))}
                 <textarea
                   placeholder="Your Message"
-                  rows="6"
                   className="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200"
                 />
                 <button
@@ -230,12 +243,13 @@ export default function Home() {
                 </button>
               </form>
               <div className="mt-12 text-gray-300">
-                <p className="text-lg mb-4">Or connect with me directly:</p>
+                <p className="text-lg mb-2">Or connect with me directly:</p>
+                <Link href="https://wa.link/ooamcm" target='_blank' className='text-cyan-400 hover:text-cyan-500 transition duration-300'>On Whatsapp</Link>
                 <div className="flex justify-center space-x-8">
                   {[
                     { href: '#', icon: 'fab fa-linkedin' },
-                    { href: '#', icon: 'fab fa-github' },
-                    { href: 'mailto:your.email@example.com', icon: 'fas fa-envelope' },
+                    { href: '#', icon: 'fab fa-whatsapp' },
+                    { href: 'mailto:mahadiqbal973@gmail.com', icon: 'fas fa-envelope' },
                   ].map((s, i) => (
                     <a
                       key={i}
